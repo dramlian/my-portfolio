@@ -4,6 +4,7 @@ import Accordion from 'react-bootstrap/esm/Accordion';
 import PersonalProjectDto from '../interfaces/PerosnalProjectDto';
 import { Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 export default function PersonalProjects({ personalProjects }: { personalProjects: PersonalProjectDto[] }) {
     return (
@@ -15,9 +16,11 @@ export default function PersonalProjects({ personalProjects }: { personalProject
                         <Accordion.Body>
                             <p><strong>Tech Stack:</strong> {project.techstack}</p>
                             <p><strong>Last Commit:</strong> {new Date(project.lastCommitDate).toLocaleDateString()}</p>
+                            <p><strong>Commits:</strong> {project.commitCount}</p>
                             <p><a href={project.url} target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
                             <hr />
                             <ReactMarkdown
+                                rehypePlugins={[rehypeRaw]}
                                 components={{
                                     img: ({ ...props }) => (
                                         <img {...props} style={{ maxWidth: '100%', height: 'auto' }} />

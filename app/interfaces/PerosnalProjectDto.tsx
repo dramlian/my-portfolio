@@ -5,4 +5,5 @@ export default interface PersonalProjectDto {
     readme: string;
     lastCommitDate: string;
     url: string;
+    commitCount: number;
 }

@@ -19,6 +19,20 @@ async function fetchLanguages(owner: string, repo: string): Promise<string> {
         .join(", ");
 }
 
+async function fetchCommitCount(owner: string, repo: string, branch: string): Promise<number> {
+    const url = `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&per_page=1&page=1`;
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) {
+        return 0;
+    }
+    const linkHeader = res.headers.get("Link");
+    if (!linkHeader) {
+        return 1;
+    }
+    const match = linkHeader.match(/&page=(\d+)>; rel="last"/);
+    return match ? parseInt(match[1], 10) : 1;
+}
+
 async function fetchReadme(owner: string, repo: string, branch: string): Promise<string> {
     const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/README.md`;
     const res = await fetch(url, { next: { revalidate: 3600 } });
@@ -44,9 +58,10 @@ export async function fetchPersonalProjects(): Promise<PersonalProjectDto[]> {
 
     const projects: PersonalProjectDto[] = await Promise.all(
         portfolioRepos.map(async (repo) => {
-            const [readmeRaw, techstack] = await Promise.all([
+            const [readmeRaw, techstack, commitCount] = await Promise.all([
                 fetchReadme(repo.owner.login, repo.name, repo.default_branch),
                 fetchLanguages(repo.owner.login, repo.name),
+                fetchCommitCount(repo.owner.login, repo.name, repo.default_branch),
             ]);
             const rawBase = `https://raw.githubusercontent.com/${repo.owner.login}/${repo.name}/${repo.default_branch}`;
             const readme = readmeRaw.replace(/\]\(\.\//g, `](${rawBase}/`);
@@ -56,7 +71,8 @@ export async function fetchPersonalProjects(): Promise<PersonalProjectDto[]> {
                 techstack,
                 readme,
                 lastCommitDate: repo.pushed_at,
-                url: repo.html_url
+                url: repo.html_url,
+                commitCount
             };
         })
     );
