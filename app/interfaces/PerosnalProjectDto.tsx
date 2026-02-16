@@ -4,4 +4,5 @@ export default interface PersonalProjectDto {
     techstack: string;
     readme: string;
     lastCommitDate: string;
+    url: string;
 }

@@ -13,6 +13,10 @@ export default function PersonalProjects({ personalProjects }: { personalProject
                     <Accordion.Item eventKey={index.toString()} key={project.id}>
                         <Accordion.Header>{project.title}</Accordion.Header>
                         <Accordion.Body>
+                            <p><strong>Tech Stack:</strong> {project.techstack}</p>
+                            <p><strong>Last Commit:</strong> {new Date(project.lastCommitDate).toLocaleDateString()}</p>
+                            <p><a href={project.url} target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+                            <hr />
                             <ReactMarkdown
                                 components={{
                                     img: ({ ...props }) => (

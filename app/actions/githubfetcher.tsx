@@ -1,20 +1,10 @@
 import PersonalProjectDto from "../interfaces/PerosnalProjectDto";
+import GitHubRepo from "../interfaces/GitHubRepo";
 
 const GITHUB_USER = "dramlian";
 const REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos`;
 const PORTFOLIO_TOPIC = "portfolio-include";
 
-interface GitHubRepo {
-    id: number;
-    name: string;
-    language: string | null;
-    pushed_at: string;
-    default_branch: string;
-    topics: string[];
-    owner: {
-        login: string;
-    };
-}
 
 async function fetchReadme(owner: string, repo: string, branch: string): Promise<string> {
     const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/README.md`;
@@ -48,6 +38,7 @@ export async function fetchPersonalProjects(): Promise<PersonalProjectDto[]> {
                 techstack: repo.language ?? "",
                 readme,
                 lastCommitDate: repo.pushed_at,
+                url: repo.html_url
             };
         })
     );
