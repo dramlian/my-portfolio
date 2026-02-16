@@ -6,6 +6,19 @@ const REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos`;
 const PORTFOLIO_TOPIC = "portfolio-include";
 
 
+async function fetchLanguages(owner: string, repo: string): Promise<string> {
+    const url = `https://api.github.com/repos/${owner}/${repo}/languages`;
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) {
+        return "";
+    }
+    const languages: Record<string, number> = await res.json();
+    const total = Object.values(languages).reduce((sum, val) => sum + val, 0);
+    return Object.entries(languages)
+        .map(([lang, bytes]) => `${lang} ${((bytes / total) * 100).toFixed(1)}%`)
+        .join(", ");
+}
+
 async function fetchReadme(owner: string, repo: string, branch: string): Promise<string> {
     const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/README.md`;
     const res = await fetch(url, { next: { revalidate: 3600 } });
@@ -31,11 +44,16 @@ export async function fetchPersonalProjects(): Promise<PersonalProjectDto[]> {
 
     const projects: PersonalProjectDto[] = await Promise.all(
         portfolioRepos.map(async (repo) => {
-            const readme = await fetchReadme(repo.owner.login, repo.name, repo.default_branch);
+            const [readmeRaw, techstack] = await Promise.all([
+                fetchReadme(repo.owner.login, repo.name, repo.default_branch),
+                fetchLanguages(repo.owner.login, repo.name),
+            ]);
+            const rawBase = `https://raw.githubusercontent.com/${repo.owner.login}/${repo.name}/${repo.default_branch}`;
+            const readme = readmeRaw.replace(/\]\(\.\//g, `](${rawBase}/`);
             return {
                 id: repo.id,
                 title: repo.name,
-                techstack: repo.language ?? "",
+                techstack,
                 readme,
                 lastCommitDate: repo.pushed_at,
                 url: repo.html_url
