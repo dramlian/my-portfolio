@@ -5,10 +5,14 @@ const GITHUB_USER = "dramlian";
 const REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos`;
 const PORTFOLIO_TOPIC = "portfolio-include";
 
+const githubHeaders: HeadersInit = process.env.GITHUB_TOKEN
+    ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+    : {};
+
 
 async function fetchLanguages(owner: string, repo: string): Promise<string> {
     const url = `https://api.github.com/repos/${owner}/${repo}/languages`;
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const res = await fetch(url, { headers: githubHeaders, next: { revalidate: 3600 } });
     if (!res.ok) {
         return "";
     }
@@ -21,7 +25,7 @@ async function fetchLanguages(owner: string, repo: string): Promise<string> {
 
 async function fetchCommitCount(owner: string, repo: string, branch: string): Promise<number> {
     const url = `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&per_page=1&page=1`;
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const res = await fetch(url, { headers: githubHeaders, next: { revalidate: 3600 } });
     if (!res.ok) {
         return 0;
     }
@@ -34,7 +38,7 @@ async function fetchCommitCount(owner: string, repo: string, branch: string): Pr
 }
 
 async function fetchReadme(owner: string, repo: string, branch: string): Promise<string> {
-    const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/README.md`;
+    const url = `https://raw.githubusercontent.com/${owner}/${repo}/refs/heads/${branch}/README.md`;
     const res = await fetch(url, { next: { revalidate: 3600 } });
     if (!res.ok) {
         return "*No README available.*";
@@ -43,7 +47,7 @@ async function fetchReadme(owner: string, repo: string, branch: string): Promise
 }
 
 export async function fetchPersonalProjects(): Promise<PersonalProjectDto[]> {
-    const res = await fetch(REPOS_URL, { next: { revalidate: 3600 } });
+    const res = await fetch(REPOS_URL, { headers: githubHeaders, next: { revalidate: 3600 } });
 
     if (!res.ok) {
         console.error("Failed to fetch repos from GitHub", res.status);
