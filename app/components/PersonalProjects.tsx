@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
+import { pascalCase } from 'change-case';
 
 export default function PersonalProjects({ personalProjects }: { personalProjects: PersonalProjectDto[] }) {
     return (
@@ -13,7 +14,7 @@ export default function PersonalProjects({ personalProjects }: { personalProject
             <Accordion alwaysOpen>
                 {personalProjects.map((project, index) => (
                     <Accordion.Item eventKey={index.toString()} key={project.id}>
-                        <Accordion.Header>{project.title}</Accordion.Header>
+                        <Accordion.Header>{pascalCase(project.title)}</Accordion.Header>
                         <Accordion.Body>
                             <p><strong>Tech Stack:</strong> {project.techstack}</p>
                             <p><strong>Last Commit:</strong> {new Date(project.lastCommitDate).toLocaleDateString()}</p>
