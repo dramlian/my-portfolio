@@ -5,6 +5,7 @@ import PersonalProjectDto from '../interfaces/PerosnalProjectDto';
 import { Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 export default function PersonalProjects({ personalProjects }: { personalProjects: PersonalProjectDto[] }) {
     return (
@@ -20,6 +21,7 @@ export default function PersonalProjects({ personalProjects }: { personalProject
                             <p><a href={project.url} target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
                             <hr />
                             <ReactMarkdown
+                                remarkPlugins={[remarkGfm]}
                                 rehypePlugins={[rehypeRaw]}
                                 components={{
                                     img: ({ ...props }) => (
