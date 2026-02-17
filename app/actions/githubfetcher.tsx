@@ -68,7 +68,9 @@ export async function fetchPersonalProjects(): Promise<PersonalProjectDto[]> {
                 fetchCommitCount(repo.owner.login, repo.name, repo.default_branch),
             ]);
             const rawBase = `https://raw.githubusercontent.com/${repo.owner.login}/${repo.name}/${repo.default_branch}`;
-            const readme = readmeRaw.replace(/\]\(\.\//g, `](${rawBase}/`);
+            const readme = readmeRaw
+                .replace(/\]\(\.\//g, `](${rawBase}/`)
+                .replace(/\]\((?!https?:\/\/|#|\/|\.)([^)]+)\)/g, `](${rawBase}/$1)`);
             return {
                 id: repo.id,
                 title: repo.name,
