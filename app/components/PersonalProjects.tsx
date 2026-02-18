@@ -1,11 +1,14 @@
 'use client';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'katex/dist/katex.min.css';
 import Accordion from 'react-bootstrap/esm/Accordion';
 import PersonalProjectDto from '../interfaces/PerosnalProjectDto';
 import { Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 import { pascalCase } from 'change-case';
 
 export default function PersonalProjects({ personalProjects }: { personalProjects: PersonalProjectDto[] }) {
@@ -22,9 +25,12 @@ export default function PersonalProjects({ personalProjects }: { personalProject
                             <p><a href={project.url} target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
                             <hr />
                             <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                rehypePlugins={[rehypeRaw]}
+                                remarkPlugins={[remarkGfm, remarkMath]}
+                                rehypePlugins={[rehypeRaw, rehypeKatex]}
                                 components={{
+                                    table: ({ ...props }) => (
+                                        <table className="table table-striped table-bordered table-hover" {...props} />
+                                    ),
                                     img: ({ ...props }) => (
                                         <img {...props} style={{ maxWidth: '100%', height: 'auto' }} />
                                     )
