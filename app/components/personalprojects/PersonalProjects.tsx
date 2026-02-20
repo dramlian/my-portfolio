@@ -2,7 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'katex/dist/katex.min.css';
 import Accordion from 'react-bootstrap/esm/Accordion';
-import PersonalProjectDto from '../interfaces/PerosnalProjectDto';
+import PersonalProjectDto from '../../interfaces/PerosnalProjectDto';
 import { Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
