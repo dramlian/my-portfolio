@@ -3,7 +3,8 @@ import
     VerticalTimelineElement
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './jobs.css';
 
 export default function JobComponent({ imgPath, jobTitle, companyName, jobDescription, jobDate })
 {
