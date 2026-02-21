@@ -1,88 +1,99 @@
 'use client';
+import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
+type TechItem = {
+    name: string;
+    description: string;
+    color: string;
+};
+
+const techData: Record<string, TechItem[]> = {
+    backend: [
+        { name: 'C#', description: 'C# is a modern object-oriented language.', color: 'secondary' },
+        { name: '.NET', description: '.NET is a framework for building apps.', color: 'secondary' },
+        { name: '.NET Core', description: '.NET Core is cross-platform.', color: 'secondary' },
+        { name: 'ASP.NET MVC', description: 'ASP.NET MVC is a web framework.', color: 'secondary' },
+        { name: 'Blazor', description: 'Blazor allows web apps with C#.', color: 'secondary' },
+    ],
+    frontend: [
+        { name: 'Next.js', description: 'Next.js is a React framework for SSR.', color: 'primary' },
+        { name: 'React', description: 'React is a UI library.', color: 'primary' },
+        { name: 'Angular', description: 'Angular is a frontend framework.', color: 'primary' },
+        { name: 'TypeScript', description: 'TypeScript adds types to JavaScript.', color: 'primary' },
+    ],
+    clouddevops: [
+        { name: 'Terraform', description: 'Terraform is for infrastructure as code.', color: 'success' },
+        { name: 'Docker', description: 'Docker is used for containerization.', color: 'success' },
+        { name: 'Kubernetes', description: 'Kubernetes orchestrates containers.', color: 'success' },
+    ],
+    databases: [
+        { name: 'MS SQL', description: 'Microsoft SQL Server is a relational DB.', color: 'warning' },
+        { name: 'PostgreSQL', description: 'PostgreSQL is an open-source DB.', color: 'warning' },
+    ],
+    tools: [
+        { name: 'Git', description: 'Git is a version control system.', color: 'info' },
+        { name: 'Postman', description: 'Postman is used for API testing.', color: 'info' },
+    ],
+};
 
 export default function TechStack() {
+    const [show, setShow] = useState(false);
+    const [modalText, setModalText] = useState('');
+    const [modalTitle, setModalTitle] = useState('');
+
+    const handleShow = (name: string, description: string) => {
+        setModalTitle(name);
+        setModalText(description);
+        setShow(true);
+    };
+
+    const renderBadges = (items: TechItem[]) =>
+        items.map((item) => (
+            <Badge
+                key={item.name}
+                bg={item.color}
+                text={item.color === 'warning' ? 'dark' : undefined}
+                onClick={() => handleShow(item.name, item.description)}
+                style={{ cursor: 'pointer' }}
+            >
+                {item.name}
+            </Badge>
+        ));
+
     return (
-        <Card>
-            <Card.Body>
-                <Tabs defaultActiveKey="backend" className="mb-3">
-                    <Tab eventKey="backend" title="Backend">
-                        <h5>Backend</h5>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                            <Badge bg="secondary">C#</Badge>
-                            <Badge bg="secondary">.NET</Badge>
-                            <Badge bg="secondary">.NET Core</Badge>
-                            <Badge bg="secondary">ASP.NET MVC</Badge>
-                            <Badge bg="secondary">ASP.NET (Minimal) Web API</Badge>
-                            <Badge bg="secondary">Blazor</Badge>
-                            <Badge bg="secondary">TPL</Badge>
-                            <Badge bg="secondary">xUnit</Badge>
-                            <Badge bg="secondary">Nunit</Badge>
-                            <Badge bg="secondary">Moq</Badge>
-                            <Badge bg="secondary">RhinoMocks</Badge>
-                            <Badge bg="secondary">Entity Framework</Badge>
-                            <Badge bg="secondary">Dapper</Badge>
-                            <Badge bg="secondary">Python</Badge>
-                            <Badge bg="secondary">FastAPI</Badge>
-                            <Badge bg="secondary">SQLAlchemy</Badge>
-                            <Badge bg="secondary">Alembic</Badge>
-                        </div>
-                    </Tab>
-                    <Tab eventKey="frontend" title="Frontend">
-                        <h5>Frontend</h5>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                            <Badge bg="primary">Nextjs</Badge>
-                            <Badge bg="primary">React</Badge>
-                            <Badge bg="primary">Angular</Badge>
-                            <Badge bg="primary">TypeScript</Badge>
-                            <Badge bg="primary">Bootstrap</Badge>
-                            <Badge bg="primary">HTML</Badge>
-                            <Badge bg="primary">CSS</Badge>
-                            <Badge bg="primary">WPF</Badge>
-                            <Badge bg="primary">Avalonia UI</Badge>
-                        </div>
-                    </Tab>
-                    <Tab eventKey="clouddevops" title="Cloud & DevOps">
-                        <h5>Cloud & DevOps</h5>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                            <Badge bg="success">Terraform</Badge>
-                            <Badge bg="success">Azure Functions</Badge>
-                            <Badge bg="success">Azure Container Apps</Badge>
-                            <Badge bg="success">Vercel</Badge>
-                            <Badge bg="success">Azure Blob Storage</Badge>
-                            <Badge bg="success">Azure Key Vault</Badge>
-                            <Badge bg="success">Docker</Badge>
-                            <Badge bg="success">Kubernetes</Badge>
-                            <Badge bg="success">IIS</Badge>
-                        </div>
-                    </Tab>
-                    <Tab eventKey="databases" title="Databases">
-                        <h5>Databases</h5>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                            <Badge bg="warning" text="dark">MS SQL</Badge>
-                            <Badge bg="warning" text="dark">PostgreSQL</Badge>
-                            <Badge bg="warning" text="dark">MongoDB</Badge>
-                        </div>
-                    </Tab>
-                    <Tab eventKey="tools" title="Tools & Others">
-                        <h5>Tools & Others</h5>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                            <Badge bg="info">Selenium</Badge>
-                            <Badge bg="info">Git</Badge>
-                            <Badge bg="info">SignalR</Badge>
-                            <Badge bg="info">Redis</Badge>
-                            <Badge bg="info">Swagger</Badge>
-                            <Badge bg="info">Postman</Badge>
-                            <Badge bg="info">Insomnia</Badge>
-                            <Badge bg="info">Azure DevOps REST API</Badge>
-                            <Badge bg="info">Azure REST API</Badge>
-                        </div>
-                    </Tab>
-                </Tabs>
-            </Card.Body>
-        </Card>
+        <>
+            <Card>
+                <Card.Body>
+                    <Tabs defaultActiveKey="backend" className="mb-3">
+                        {Object.entries(techData).map(([key, items]) => (
+                            <Tab eventKey={key} title={key.charAt(0).toUpperCase() + key.slice(1)} key={key}>
+                                <h5>{key.charAt(0).toUpperCase() + key.slice(1)}</h5>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                                    {renderBadges(items)}
+                                </div>
+                            </Tab>
+                        ))}
+                    </Tabs>
+                </Card.Body>
+            </Card>
+
+            <Modal show={show} onHide={() => setShow(false)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>{modalTitle}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{modalText}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShow(false)}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
     );
 }
