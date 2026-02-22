@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Navbar as BsNavbar, Nav, Container } from 'react-bootstrap';
+import { Navbar as BsNavbar, Nav, Container, Button } from 'react-bootstrap';
 
 const sections = [
     { id: 'basic-info', label: 'About' },
@@ -36,6 +36,11 @@ export default function Navbar() {
                             </Nav.Link>
                         ))}
                     </Nav>
+                    <a href="/djcv.pdf" download="Damian_Jankov_CV.pdf">
+                        <Button variant="outline-secondary" size="sm">
+                            Download CV
+                        </Button>
+                    </a>
                 </BsNavbar.Collapse>
             </Container>
         </BsNavbar>
