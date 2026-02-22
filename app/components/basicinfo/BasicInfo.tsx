@@ -37,7 +37,7 @@ export default function BasicInfo() {
                     </h5>
 
                     <p className="text-secondary" style={{ lineHeight: 1.8 }}>
-                        My name is Damian and I am a software developer with a passion for learning new technologies and building innovative solutions. I have experience in both frontend and backend development, and I enjoy working on projects that challenge me to grow my skills. In my free time, I like to explore new programming languages, contribute to open-source projects, and stay up-to-date with the latest trends in the tech industry.
+                        My name is Damián and I am a software developer with a passion for learning new technologies and building innovative solutions. I have experience in both frontend and backend development, and I enjoy working on projects that challenge me to grow my skills. In my free time, I like to explore new programming languages, contribute to open-source projects, and stay up-to-date with the latest trends in the tech industry.
                     </p>
 
                     <div className="d-flex flex-column gap-4">

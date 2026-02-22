@@ -22,7 +22,7 @@ export default function Navbar() {
         >
             <Container>
                 <BsNavbar.Brand href="#basic-info">
-                    Damian Jankov
+                    Damián Jankov
                 </BsNavbar.Brand>
                 <BsNavbar.Toggle aria-controls="main-nav" />
                 <BsNavbar.Collapse id="main-nav">
