@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
-import { Tab, Tabs, Card, Badge, Modal, Button } from 'react-bootstrap';
+import { Tab, Tabs, Card, Modal, Button } from 'react-bootstrap';
+import styles from './TechStack.module.css';
 
 type TechItem = {
     name: string;
@@ -48,17 +49,15 @@ export default function TechStack() {
         setShow(true);
     };
 
-    const renderBadges = (items: TechItem[]) =>
+    const renderItems = (items: TechItem[]) =>
         items.map((item) => (
-            <Badge
+            <button
                 key={item.name}
-                bg={item.color}
-                text={item.color === 'warning' ? 'dark' : undefined}
+                className={styles.techItem}
                 onClick={() => handleShow(item.name, item.description)}
-                style={{ cursor: 'pointer' }}
             >
                 {item.name}
-            </Badge>
+            </button>
         ));
 
     return (
@@ -69,8 +68,8 @@ export default function TechStack() {
                         {Object.entries(techData).map(([key, items]) => (
                             <Tab eventKey={key} title={key.charAt(0).toUpperCase() + key.slice(1)} key={key}>
                                 <h5>{key.charAt(0).toUpperCase() + key.slice(1)}</h5>
-                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                                    {renderBadges(items)}
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.2rem' }}>
+                                    {renderItems(items)}
                                 </div>
                             </Tab>
                         ))}
