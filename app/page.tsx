@@ -12,25 +12,28 @@ export default async function Home() {
     <Container className="p-4">
       <Row className="mb-4">
         <Col className="rounded border border-secondary p-2">
-          <h1 className="p-3 mb-4" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
+          <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             My tech stack
           </h1>
-          <TechStack />
+          <h6 className="ps-3 pb-3">Some technologies I work/worked with either professionally or in my free time.</h6>
+          {/* <TechStack /> */}
         </Col>
       </Row>
       <Row className="mb-4">
         <Col className="rounded border border-secondary p-2">
-          <h1 className="p-3 mb-4" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
+          <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Job history
           </h1>
+          <h6 className="ps-3 pb-3">These are relevant long term projects I have been involved in.</h6>
           <JobHistory />
         </Col>
       </Row>
       <Row>
         <Col className="rounded border border-secondary p-2">
-          <h1 className="p-3 mb-4" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
+          <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Personal projects
           </h1>
+          <h6 className="ps-3 pb-3">These are some of my personal projects that I have worked on in my free time. Please keep in mind all of these are fetched from my GitHub and rendered here</h6>
           <PersonalProjects personalProjects={personalProjects} />
         </Col>
       </Row>
