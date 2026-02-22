@@ -1,5 +1,7 @@
 import PersonalProjects from "./components/personalprojects/PersonalProjects";
 import JobHistory from "./components/jobs/JobHistory";
+import TechStack from "./components/techstack/TechStack";
+
 import { fetchPersonalProjects } from "./actions/githubfetcher";
 import { Row, Container, Col } from "react-bootstrap";
 
@@ -14,7 +16,7 @@ export default async function Home() {
             My tech stack
           </h1>
           <h6 className="ps-3 pb-3">Some technologies I work/worked with either professionally or in my free time.</h6>
-          {/* <TechStack /> */}
+          <TechStack />
         </Col>
       </Row>
       <Row className="mb-4">
