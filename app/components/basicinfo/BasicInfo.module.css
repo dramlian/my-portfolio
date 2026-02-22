@@ -1,0 +1,8 @@
+.iconLink {
+    color: #6c757d;
+    transition: color 0.2s ease;
+}
+
+.iconLink:hover {
+    color: #adb5bd;
+}
