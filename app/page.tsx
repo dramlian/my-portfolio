@@ -16,7 +16,7 @@ export default async function Home() {
             My tech stack
           </h1>
           <h6 className="ps-3 pb-3">Some technologies I work/worked with either professionally or in my free time.</h6>
-          {/* <TechStack /> */}
+          <TechStack />
         </Col>
       </Row>
       <Row className="mb-4">
