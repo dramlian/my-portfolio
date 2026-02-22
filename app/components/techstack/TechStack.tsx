@@ -1,11 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
-import Card from 'react-bootstrap/Card';
-import Badge from 'react-bootstrap/Badge';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import { Tab, Tabs, Card, Badge, Modal, Button } from 'react-bootstrap';
 
 type TechItem = {
     name: string;
