@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <Container className="p-4">
-      <Row className="mb-4">
+      <Row id="basic-info" className="mb-4" style={{ scrollMarginTop: "4.5rem" }}>
         <Col className="rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Basic info
@@ -20,7 +20,7 @@ export default async function Home() {
           <BasicInfo />
         </Col>
       </Row>
-      <Row className="mb-4">
+      <Row id="job-history" className="mb-4" style={{ scrollMarginTop: "4.5rem" }}>
         <Col className="rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Job history
@@ -29,7 +29,7 @@ export default async function Home() {
           <JobHistory />
         </Col>
       </Row>
-      <Row className="mb-4">
+      <Row id="tech-stack" className="mb-4" style={{ scrollMarginTop: "4.5rem" }}>
         <Col className="rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             My tech stack
@@ -38,7 +38,7 @@ export default async function Home() {
           <TechStack />
         </Col>
       </Row>
-      <Row className="mb-4">
+      <Row id="personal-projects" className="mb-4" style={{ scrollMarginTop: "4.5rem" }}>
         <Col className="rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Personal projects
@@ -47,7 +47,7 @@ export default async function Home() {
           <PersonalProjects personalProjects={personalProjects} />
         </Col>
       </Row>
-      <Row>
+      <Row id="contact" style={{ scrollMarginTop: "4.5rem" }}>
         <Col className="rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Mail me
