@@ -7,7 +7,7 @@ export default function BasicInfo() {
     return (
         <Container className="p-2">
             <Row className="g-4 justify-content-center align-items-center">
-                <Col md={4}>
+                <Col md={4} className={`mb-3 ${styles.slideIn}`}>
                     <Image
                         src="/picofme.png"
                         alt="Damian Jankov"
