@@ -10,50 +10,178 @@ type TechItem = {
 
 const techData: Record<string, TechItem[]> = {
     backend: [
-        { name: 'C#', description: 'Almost every single job that I ever did was heavily or exclusively based on C#. You can checkout the porftolio section it contains mostly C# projects.' },
-        { name: '.NET (Core)', description: 'I have developed numerous applications using the .NET framework, many backend systems either professionally or in free time. I have worked with very new .NET Core projects and also very old ones in the .NET Framework.' },
-        { name: 'ASP.NET MVC', description: 'I have developed several apps in Siemens that had MVC architecture. So I am quite familiar with the workflow and rendering of Razor pages. However if I can start doing something from scratch I usually go for NextJs.' },
-        { name: 'ASP.NET Web API', description: 'I have built numerous endpoints and services either profesionally or in free time, checkout RSTracker in my portfolio section, I built a pretty robust backend system there.' },
-        { name: 'Blazor', description: 'I am quite faimiliar with Blazor and the component system I have worked with it in Siemens, I would not however recommend it' },
-        { name: 'TPL', description: 'I have used the Task Parallel Library (TPL) in .NET for writing concurrent and parallel code in Siemens I have sped up many apps that fetched a lot of data from API using this library' },
-        { name: 'xUnit', description: 'I have used xUnit for unit testing in .NET projects, I wrote some functional tests in RSTracker you can check them out in my portfolio section.' },
-        { name: 'Entity Framework', description: 'I highly prefer to use EF for most data manipulations in .NET projects. I really enjoy the usage of LINQ for querying data. You can checkout RSTracker and ChoreMaster in my portfolio section, I have used EF extensively in both projects.' },
-        { name: 'Python', description: 'I have experience with Python from university projects and also some personal experiments (SolanaTokenMaker in the portfolio section). I have also used it profesionally in Volkswagen to develop various scripts, fast api backends and azure functions.' },
-        { name: 'FastAPI', description: 'Worked with it in Volkswagen to develop various fast API backends.' },
-        { name: 'SQLAlchemy', description: 'I have worked with this technology mostly in Volkswagen as a ORM layer for managing database interactions.' },
-        { name: 'Alembic', description: 'I have used Alembic for managing database schema changes over time in SQLAlchemy projects in Volkswagen.' },
+        {
+            name: 'C#',
+            description: 'C# has been the core of most of my professional work. You can see many C# projects in the personal projects section. I prefer it for backend development because I appreciate its compiled nature and strong typing.'
+        },
+        {
+            name: '.NET (Core)',
+            description: 'I have developed numerous applications using the .NET framework, including backend systems both professionally and as personal projects. My experience spans modern .NET Core applications as well as legacy .NET Framework projects.'
+        },
+        {
+            name: 'ASP.NET MVC',
+            description: 'I have developed several applications at Siemens using the MVC architecture, which gave me solid experience with the workflow and Razor page rendering. For new projects from scratch, I usually prefer using Next.js.'
+        },
+        {
+            name: 'ASP.NET Web API',
+            description: 'I have built numerous endpoints and services, both professionally and as personal projects. You can check out RSTracker in the personal projects section, where I developed a robust backend system.'
+        },
+        {
+            name: 'Blazor',
+            description: 'I am familiar with Blazor and its component system, having worked with it at Siemens. However, I would not generally recommend it for new projects.'
+        },
+        {
+            name: 'TPL',
+            description: 'I have used the Task Parallel Library (TPL) in .NET to write concurrent and parallel code at Siemens, speeding up many applications that fetched large amounts of data from APIs.'
+        },
+        {
+            name: 'xUnit / NUnit',
+            description: 'I have used NUnit for legacy .NET projects and xUnit for newer projects, such as functional tests in RSTracker. You can check them out in the personal projects section.'
+        },
+        {
+            name: 'Entity Framework',
+            description: 'I prefer using Entity Framework for most data manipulations in .NET projects. I enjoy using LINQ for querying data. I used EF extensively in RSTracker and ChoreMaster, both shown in the personal projects section.'
+        },
+        {
+            name: 'Dapper',
+            description: 'I have used Dapper in several projects at Siemens. I prefer it for complex queries or when I need more control over SQL execution, though EF is sufficient for most scenarios.'
+        },
+        {
+            name: 'Python',
+            description: 'I have experience with Python from university projects, personal experiments (like SolanaTokenMaker in the personal projects section), and professional work at Volkswagen, developing scripts, FastAPI backends, and Azure Functions.'
+        },
+        {
+            name: 'FastAPI',
+            description: 'I have used FastAPI at Volkswagen to develop various fast API backends.'
+        },
+        {
+            name: 'SQLAlchemy',
+            description: 'I have used SQLAlchemy at Volkswagen as an ORM layer for managing database interactions.'
+        },
+        {
+            name: 'Alembic',
+            description: 'I have used Alembic to manage database schema changes over time in SQLAlchemy projects at Volkswagen.'
+        }
     ],
     frontend: [
-        { name: 'React', description: 'My first introduction to React was in Volkswagen where I developed internal user management dashboard that utilized Azure API for management of users and priviledges. It was a modern React 18 with Vite. Since then I really enjoyed React and have used it in various projects. Basically all webprojects that you see in the portfolio section use React or NextJs.' },
-        { name: 'Angular', description: 'I am working with Angular in Panaxeo. I know the basics and I am able to develop/fix/debug some basic components.' },
-        { name: 'TypeScript', description: 'In Volkswagen I was told to use javascript, but I always wondered why all the big projects use Typescript. After trying it out all my personal projects have been using Typescript.' },
-        { name: 'Bootstrap', description: 'I really prefer to use bootstrap especially for reponsivnes and composition. It is used in all my web projects in the portfolio section.' },
-        { name: 'HTML', description: 'I think HTML and how much experience I have with it is self explanatory. I did my first website in highschool as a school project.' },
-        { name: 'CSS', description: 'I think CSS and how much experience I have with it is self explanatory. I did my first website in highschool as a school project.' },
-        { name: 'WPF', description: 'I developed couple of desktop tools in Siemens and I have also worked with Avalonia (MandelBrot project in the portfolio section) and other .NET desktop UI frameworks.' },
+        {
+            name: 'React',
+            description: 'I was first introduced to React at Volkswagen, where I developed an internal user management dashboard using Azure API for user and privilege management. It was a modern React 18 project with Vite. Since then, I have enjoyed using React in various projects. Almost all web projects in the personal projects section use React or Next.js.'
+        },
+        {
+            name: 'Angular',
+            description: 'I am currently working with Angular at Panaxeo. I know the basics and can develop, fix, or debug standard components.'
+        },
+        {
+            name: 'Next.js',
+            description: 'I have used Next.js in several personal projects and enjoy it. I like the file-based routing and the fact that it is a fullstack framework, allowing me to develop both backend and frontend in the same project. This portfolio website and LifeOrganizer (in the personal projects section) were built with Next.js.'
+        },
+        {
+            name: 'TypeScript',
+            description: 'At Volkswagen, I was initially told to use JavaScript, but I was curious about why large projects prefer TypeScript. After trying it, all my personal projects now use TypeScript.'
+        },
+        {
+            name: 'Bootstrap',
+            description: 'I prefer Bootstrap for responsiveness and layout composition. It is used in all my web projects in the personal projects section.'
+        },
+        {
+            name: 'HTML',
+            description: 'I have extensive experience with HTML. My first website was a high school project.'
+        },
+        {
+            name: 'CSS',
+            description: 'I have extensive experience with CSS. My first website was a high school project.'
+        },
+        {
+            name: 'WPF',
+            description: 'I developed several desktop tools at Siemens using WPF and have also worked with Avalonia (MandelBrot project in the personal projects section) and other .NET desktop UI frameworks.'
+        }
     ],
     'cloud & devops': [
-        { name: 'Terraform', description: 'I have heard about Terraform and its capabilities in Volkswagen but my role did not involve using it directly. So in my free time I tried it out when working with Choremaster (checkout the portfolio section in this website). And I really understand now how good/important it is.' },
-        { name: 'Azure Functions', description: 'I have developed couple Azure functions for Volkswagen for synchronizing data amoong projects using Python and I have also used it in my free time to develop a mesasnger bot CATBOT (checkout the portfolio section in this website).' },
-        { name: 'Azure Container Apps', description: 'I am able to configure container apps, various backend using docker images and also configure pipelines for continuous integration and deployment.' },
-        { name: 'Azure Blob Storage', description: 'I have used it in Volkswagen to store data, logs, however if I could choose I would most likely go for OpenTelemetry instead.' },
-        { name: 'Azure Key Vault', description: 'I have used Azure Key Vault in Volkswagen to securely store and manage sensitive information such as API keys and connection strings. I have also used it in RSTracker (checkout the portfolio section in this website).' },
-        { name: 'Azure DevOps REST API', description: 'I have used the REST API extensively in Siemens when creating various tools for reporting ultrasound testing data.' },
-        { name: 'Azure REST API', description: 'The set of HTTP APIs that allow programmatic access to Azure resources and services.' },
-        { name: 'Docker', description: 'When running something locally I use docker, I have also used it in almost every either personal or professional project for containerization and deployment.' },
-        { name: 'Kubernetes', description: 'The infrastructure in the Panaxeo project runs also on Kubernetes, my role does not involve direct management of Kubernetes clusters, but I am familiar with its concepts and usage. I have also played around with it locally.' },
-        { name: 'IIS', description: 'All legacy old .NET framework projects I have worked with in the past were hosted on IIS.' },
+        {
+            name: 'Terraform',
+            description: 'I learned Terraform at Volkswagen and experimented with it in my free time while working on ChoreMaster (see the personal projects section). I now have a solid understanding of its capabilities and importance.'
+        },
+        {
+            name: 'Azure Functions',
+            description: 'I developed several Azure Functions at Volkswagen for synchronizing data across projects using Python. I have also used it personally to build a messenger bot, CATBOT (see the personal projects section).'
+        },
+        {
+            name: 'Azure Container Apps',
+            description: 'I can configure container apps and backend services using Docker images, and set up pipelines for continuous integration and deployment.'
+        },
+        {
+            name: 'Azure Static Web Apps',
+            description: 'I have used Azure Static Web Apps mostly for small side projects. It is a simple and cost-effective option for lightweight websites.'
+        },
+        {
+            name: 'Azure Blob Storage',
+            description: 'I have used Azure Blob Storage at Volkswagen to store data and logs. In new projects, I would likely choose OpenTelemetry for observability and logging.'
+        },
+        {
+            name: 'Azure Key Vault',
+            description: 'I used Azure Key Vault at Volkswagen to securely store sensitive information such as API keys and connection strings. I also used it in RSTracker (see the personal projects section).'
+        },
+        {
+            name: 'Azure DevOps REST API',
+            description: 'I have used the Azure DevOps REST API extensively at Siemens to create tools for reporting ultrasound testing data.'
+        },
+        {
+            name: 'Azure REST API',
+            description: 'I am familiar with Azure’s HTTP APIs for programmatic access to resources and services.'
+        },
+        {
+            name: 'Docker',
+            description: 'I use Docker for local development and have used it in nearly all personal and professional projects for containerization and deployment.'
+        },
+        {
+            name: 'Kubernetes',
+            description: 'The Panaxeo project infrastructure runs on Kubernetes. While my role does not include direct cluster management, I am familiar with its concepts and have experimented with it locally.'
+        },
+        {
+            name: 'IIS',
+            description: 'All legacy .NET Framework projects I have worked on in the past were hosted on IIS.'
+        }
     ],
     databases: [
-        { name: 'SQL', description: 'Most .NET projects used MS SQL Server. I understand both basics and more advanced concepts. I am able to modify stored procedures and optimize queries. I am able to see development maps and navigate through complex database structures.' },
-        { name: 'MongoDB', description: 'I have used MongoDB in couple of personal projects (Life Organizer in the portfolio section) and I am familiar with the basics of document-oriented databases and how to perform CRUD operations using MongoDB.' },
+        {
+            name: 'SQL',
+            description: 'Most of my .NET projects used MS SQL Server. I am comfortable with both basic and advanced concepts, including modifying stored procedures, optimizing queries, and navigating complex database structures. I have experience with a wide variety of SQL systems, so I did not list them individually.'
+        },
+        {
+            name: 'MongoDB',
+            description: 'I have used MongoDB in several personal projects, including Life Organizer (see the personal projects section). I am familiar with document-oriented databases and performing CRUD operations in MongoDB.'
+        }
     ],
     'tools & others': [
-        { name: 'Selenium', description: 'I developed a testing bot using Selenium for my master thesis project. In very simple terms this bot interacted with my web app and downloaded reports and compared them to expected results ensuring the functionality of the application.' },
-        { name: 'Git', description: 'I use Git for version control in all my projects, both personal and professional. I am familiar with branching, merging, rebasing, and resolving conflicts.' },
-        { name: 'SignalR', description: 'I tried building real-time chatting application with SignalR, it is not included in the porfolio section because it was a failed project, but I am quite familiar with its concepts and usage. And I think it a cool technology that I would be open to work with.' },
-        { name: 'Redis', description: 'I worked with professionally but my role never involved deep architectural decisions or advanced optimizations. I however setup a project locally that used Redis and wanted to implement in it RSTracker (checkout the portfolio section in this website) if the usercount would increase. I think it is a cool technology that I would be open to work with.' },
-        { name: 'GitHub Actions', description: 'In my profesional experience especially in Siemens I fixed couple of failing pipelines mostly just the code that was making the pipelines crash but I developed fully working pipeline in RSTracker that automated the build, test, and deployment processes, checkout the portfolio section in this website to inspect it.' },
+        {
+            name: 'Selenium',
+            description: 'For my master’s thesis, I developed a testing bot using Selenium. The bot interacted with my web application, downloaded reports, and compared them to expected results to ensure functionality.'
+        },
+        {
+            name: 'Git',
+            description: 'I use Git for version control in all my projects, both personal and professional. I am familiar with branching, merging, rebasing, and resolving conflicts.'
+        },
+        {
+            name: 'SignalR',
+            description: 'I experimented with building a real-time chat application using SignalR. Although the project was not completed, I am familiar with its concepts and usage, and I would be open to working with it in the future.'
+        },
+        {
+            name: 'Redis',
+            description: 'I have professional experience with Redis, though my role did not involve deep architectural decisions. I also experimented locally and considered implementing it in RSTracker (see the personal projects section) for higher user counts. I find it a powerful technology and would be open to using it further.'
+        },
+        {
+            name: 'GitHub Actions',
+            description: 'At Siemens, I fixed several failing pipelines, mostly addressing the code issues causing crashes. I also developed a fully working pipeline in RSTracker that automated build, test, and deployment processes (see the personal projects section).'
+        },
+        {
+            name: 'Vercel',
+            description: 'I have used Vercel to host personal projects. It is excellent for frontend applications and serverless functions, with easy deployment and scalability. This website is hosted on Vercel, and I appreciate how simple deployment and automated pipelines are.'
+        },
+        {
+            name: 'Supabase',
+            description: 'For hosting databases in personal projects, I almost always use Supabase due to its generous free tier.'
+        }
     ],
 };
 
