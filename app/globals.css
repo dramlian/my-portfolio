@@ -9,3 +9,16 @@ body {
 .vertical-timeline-element-date {
     color: #fff !important;
 }
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlide 1s ease-out forwards;
+}
+
+@keyframes fadeSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

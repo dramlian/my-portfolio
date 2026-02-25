@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <Container className="p-4">
       <Row id="basic-info" className="mb-4" style={{ scrollMarginTop: "4.5rem" }}>
-        <Col className="rounded border border-secondary p-2">
+        <Col className="fade-in rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Basic info
           </h1>
@@ -21,7 +21,7 @@ export default async function Home() {
         </Col>
       </Row>
       <Row id="job-history" className="mb-4" style={{ scrollMarginTop: "4.5rem" }}>
-        <Col className="rounded border border-secondary p-2">
+        <Col className="fade-in rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Job history
           </h1>
@@ -30,7 +30,7 @@ export default async function Home() {
         </Col>
       </Row>
       <Row id="tech-stack" className="mb-4" style={{ scrollMarginTop: "4.5rem" }}>
-        <Col className="rounded border border-secondary p-2">
+        <Col className="fade-in rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             My tech stack
           </h1>
@@ -39,7 +39,7 @@ export default async function Home() {
         </Col>
       </Row>
       <Row id="personal-projects" className="mb-4" style={{ scrollMarginTop: "4.5rem" }}>
-        <Col className="rounded border border-secondary p-2">
+        <Col className="fade-in rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
             Personal projects
           </h1>
@@ -48,9 +48,9 @@ export default async function Home() {
         </Col>
       </Row>
       <Row id="contact" style={{ scrollMarginTop: "4.5rem" }}>
-        <Col className="rounded border border-secondary p-2">
+        <Col className="fade-in rounded border border-secondary p-2">
           <h1 className="p-3 mb-3" style={{ borderBottom: "1px solid #6c757d", display: "inline-block" }}>
-            Mail me
+            Contact me
           </h1>
           <h6 className="ps-3 pb-3">Have a question or want to get in touch? Fill in the form below and your Gmail email client will open with the message ready to send.</h6>
           <ContactMe />
