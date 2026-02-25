@@ -1,0 +1,8 @@
+.contactItem {
+    color: #6c757d;
+    transition: color 0.2s ease;
+}
+
+.contactItem:hover {
+    color: #adb5bd;
+}

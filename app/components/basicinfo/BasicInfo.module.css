@@ -13,12 +13,3 @@
 .slideIn {
     animation: slideInFromLeft 0.7s ease forwards;
 }
-
-.iconLink {
-    color: #6c757d;
-    transition: color 0.2s ease;
-}
-
-.iconLink:hover {
-    color: #adb5bd;
-}

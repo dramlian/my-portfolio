@@ -1,6 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
 import styles from "./BasicInfo.module.css";
 
 export default function BasicInfo() {
@@ -16,20 +15,7 @@ export default function BasicInfo() {
                         style={{ objectFit: "cover" }}
                     />
 
-                    <div className={`d-flex gap-5 mt-4 justify-content-center align-items-center ${styles.iconContainer}`}>
-                        <a href="mailto:jankovdamian@gmail.com" className={styles.iconLink}>
-                            <FaEnvelope size={28} />
-                        </a>
-                        <a href="tel:+421907073599" className={styles.iconLink}>
-                            <FaPhone size={28} />
-                        </a>
-                        <a href="https://linkedin.com/in/damian-jankov0577a8223/" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-                            <FaLinkedin size={28} />
-                        </a>
-                        <a href="https://github.com/dramlian" target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-                            <FaGithub size={28} />
-                        </a>
-                    </div>
+
                 </Col>
                 <Col md={8} className="mb-5 mt-0">
                     <h5 className="mb-0" style={{ borderBottom: "1px solid #6c757d", paddingBottom: "0.4rem" }}>
