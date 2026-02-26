@@ -1,6 +1,6 @@
 'use client';
-import { useState } from 'react';
 import { Navbar as BsNavbar, Nav, Container, Button } from 'react-bootstrap';
+import { Link as ScrollLink } from 'react-scroll';
 
 const sections = [
     { id: 'basic-info', label: 'About' },
@@ -9,6 +9,9 @@ const sections = [
     { id: 'personal-projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' },
 ];
+
+const SCROLL_OFFSET = -64;
+const SCROLL_DURATION = 50;
 
 export default function Navbar() {
 
@@ -21,7 +24,14 @@ export default function Navbar() {
             style={{ borderBottom: '1px solid #6c757d' }}
         >
             <Container>
-                <BsNavbar.Brand href="#basic-info">
+                <BsNavbar.Brand
+                    as={ScrollLink}
+                    to="basic-info"
+                    smooth={true}
+                    duration={SCROLL_DURATION}
+                    offset={SCROLL_OFFSET}
+                    style={{ cursor: 'pointer' }}
+                >
                     Damián Jankov
                 </BsNavbar.Brand>
                 <BsNavbar.Toggle aria-controls="main-nav" />
@@ -30,7 +40,14 @@ export default function Navbar() {
                         {sections.map(({ id, label }) => (
                             <Nav.Link
                                 key={id}
-                                href={`#${id}`}
+                                as={ScrollLink}
+                                to={id}
+                                smooth={true}
+                                duration={SCROLL_DURATION}
+                                offset={SCROLL_OFFSET}
+                                spy={true}
+                                activeClass="active"
+                                style={{ cursor: 'pointer' }}
                             >
                                 {label}
                             </Nav.Link>
