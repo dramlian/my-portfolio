@@ -17,11 +17,10 @@ export default function Navbar() {
 
     return (
         <BsNavbar
-            bg="dark"
             variant="dark"
             expand="md"
             fixed="top"
-            style={{ borderBottom: '1px solid #6c757d' }}
+            style={{ borderBottom: '1px solid #6c757d', backgroundColor: '#000000' }}
         >
             <Container>
                 <BsNavbar.Brand
@@ -30,7 +29,7 @@ export default function Navbar() {
                     smooth={true}
                     duration={SCROLL_DURATION}
                     offset={SCROLL_OFFSET}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer', fontFamily: 'var(--font-orbitron)' }}
                 >
                     Damián Jankov
                 </BsNavbar.Brand>

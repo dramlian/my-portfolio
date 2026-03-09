@@ -1,5 +1,11 @@
+:root[data-bs-theme="dark"] {
+    --bs-body-bg: #000000;
+    --bs-body-bg-rgb: 0, 0, 0;
+}
+
 body {
     padding-top: 56px;
+    background-color: #000000 !important;
 }
 
 .vertical-timeline-element-date {
