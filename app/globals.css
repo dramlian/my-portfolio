@@ -3,6 +3,11 @@
     --bs-body-bg-rgb: 0, 0, 0;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
 body {
     padding-top: 56px;
     background-color: #000000 !important;
