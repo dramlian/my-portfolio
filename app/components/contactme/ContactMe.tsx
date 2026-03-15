@@ -23,9 +23,9 @@ export default function ContactMe() {
     const isDisabled = subject.trim() === '' && body.trim() === '';
 
     return (
-        <Row className="justify-content-center ms-5">
+        <Row>
             {/* Left Side - Contact Methods */}
-            <Col md={4}>
+            <Col md={4} className="m-3">
                 <div className="d-flex flex-column gap-4 align-items-start">
                     <a href="mailto:jankovdamian@gmail.com" className={`d-flex align-items-center gap-3 text-decoration-none ${styles.contactItem}`}>
                         <FaEnvelope size={40} />
@@ -59,7 +59,7 @@ export default function ContactMe() {
             </Col>
 
             {/* Right Side - Form */}
-            <Col md={8}>
+            <Col className='m-3'>
                 <Form>
                     <Form.Group className="mb-3" controlId="mailSubject">
                         <Form.Label>Subject</Form.Label>

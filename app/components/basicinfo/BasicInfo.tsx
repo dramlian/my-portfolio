@@ -12,7 +12,7 @@ export default function BasicInfo() {
                         alt="Damian Jankov"
                         width={400}
                         height={400}
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "cover", width: "100%", height: "auto" }}
                     />
 
 
